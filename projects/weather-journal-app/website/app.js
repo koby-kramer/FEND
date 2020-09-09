@@ -9,8 +9,12 @@ let newDate = d.toLocaleString('en-US', { month: 'long', day: 'numeric', year: '
 // Get Inputs and call getWeather
 document.getElementById('generate').addEventListener('click', (e) => {
     const zipCode = document.getElementById('zip').value;
-    const feelings = document.getElementById('feelings').value;
-    getWeather(zipCode, feelings);
+    if (zipCode.length === 0) {
+        alert("Please enter a Zip Code.")
+    } else {
+        const feelings = document.getElementById('feelings').value;
+        getWeather(zipCode, feelings);
+    }
 });
 
 // getWeather Function
